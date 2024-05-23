@@ -24,11 +24,42 @@ namespace tabuleiro
             return pecas[linha, coluna];
         }//PECA
 
+        public Peca peca(Posicao pos)
+        {
+            return pecas[pos.linha, pos.coluna];
+        }// PECA
+
+
+        public bool existePeca(Posicao pos)
+        {
+            validarPosicao(pos);
+            return peca(pos) != null;
+        }//VERIFICAR SE JÁ HÁ PEÇA NO LUGAR
+
+
         public void colocarPeca(Peca p, Posicao pos)
         {
             pecas[pos.linha, pos.coluna] = p;
             p.posicao = pos;
         }//COLOCAR PECA
+
+        public bool posicaoValida(Posicao pos)
+        {
+            if (pos.linha < 0 || pos.linha >= linhas || pos.coluna < 0 || pos.coluna > colunas)
+            {
+                return false;
+            }
+            return true;
+        }//TESTANDO POSIÇÃO INSERIDA
+
+        public void validarPosicao(Posicao pos) {
+            if (!posicaoValida(pos))
+            {
+                throw new TabuleiroException("Posição invalida!");
+            }//IF  VALIDAR POSIÇÃO
+        
+        }//VALIDAR A POSIÇÃO
+
 
     }//CLASS TABULEIRO 
 
