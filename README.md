@@ -32,11 +32,11 @@ Este projeto é licenciado sob a [Licença MIT](LICENSE).
 
 ## Autor
 
-[Seu Nome] - [Seu Site/Página de Perfil] - [Seu Email]
+Claudio Matheus - www.linkedin.com/in/claudio-matheus-814420278 - claudiomatheus055@gmail.com
 
 ## Reconhecimentos
 
-- Inspirado pelo projeto de xadrez em C# de [Nome do Projeto ou Autor do Projeto Inspirador]
+- Inspirado pelo projeto de xadrez em C# de Nelio Alves
 
 ---
 
