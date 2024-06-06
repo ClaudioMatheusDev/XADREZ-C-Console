@@ -18,7 +18,10 @@ namespace tabuleiro
             this.qteMovimentos = 0;
         }//PUBLIC PECA
 
-
+        public void incrementarQteMovimentos()
+        {
+            qteMovimentos++;
+        }//Quantidade de movimentos ++
 
 
     }//CLASS PECA
