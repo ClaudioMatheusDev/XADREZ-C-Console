@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using tabuleiro;
 using xadrez;
@@ -7,6 +8,41 @@ namespace xadrez_console
 {
     internal class Tela
     {
+        public static void imprimirPartida(PartidaDeXadrez partida)
+        {
+            imprimirTabuleiro(partida.tab);
+            Console.WriteLine();
+            imprimirPecasCapturadas(partida);
+            Console.WriteLine();
+            Console.WriteLine("Turno: " + partida.turno);
+            Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
+
+        } //IMPRIMINDO A PARTIDA
+
+        public static void imprimirPecasCapturadas(PartidaDeXadrez partida)
+        {
+            Console.WriteLine("Peças capturadas: ");
+            Console.WriteLine("Brancas: ");
+            imprimirConjunto(partida.pecasCapturadas(Cor.Branca));
+            Console.WriteLine();
+            Console.WriteLine("Pretas: ");
+            ConsoleColor aux = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            imprimirConjunto(partida.pecasCapturadas(Cor.Preta));
+            Console.ForegroundColor = aux;
+            Console.WriteLine();
+        }//IMPRIMINDO AS PEÇAS CAPTURADAS 
+
+        public static void imprimirConjunto (HashSet<Peca> conjunto)
+        {
+            Console.Write("[");
+            foreach (Peca x in conjunto)
+            {
+                Console.Write(x + " ");
+            }
+            Console.Write("]");
+        }//IMPRIMINDO OS CONJUTOS
+
         public static void imprimirTabuleiro(Tabuleiro tab)
         {
             for (int i = 0; i < tab.linhas; i++)
@@ -15,15 +51,15 @@ namespace xadrez_console
                 for (int j = 0; j < tab.colunas; j++)
                 {
                     imprimirPeca(tab.peca(i, j));
-                    }
+                }
                 Console.WriteLine();
-                 } //IMPRIMINDO O TABULEIRO           
+            } //IMPRIMINDO O TABULEIRO           
 
             Console.WriteLine("  a b c d e f g h");
         }// A B C E D F G H Em baixo do tabuleiro
 
 
-        public static void imprimirTabuleiro(Tabuleiro tab, bool[,] posicoePossiveis )
+        public static void imprimirTabuleiro(Tabuleiro tab, bool[,] posicoePossiveis)
         {
             ConsoleColor fundoOriginal = Console.BackgroundColor;
             ConsoleColor fundoAlterado = ConsoleColor.DarkGray;
@@ -39,7 +75,7 @@ namespace xadrez_console
                     }
                     else
                     {
-                        Console.BackgroundColor= fundoOriginal;
+                        Console.BackgroundColor = fundoOriginal;
                     }
                     imprimirPeca(tab.peca(i, j));
                     Console.BackgroundColor = fundoOriginal;
