@@ -41,10 +41,10 @@ namespace tabuleiro
         } //EXISTE MOVIMENTOS POSSIVEIS
 
 
-        public bool podeMoverPara(Posicao pos)
+        public bool movimentoPossivel(Posicao pos)
         {
             return movimentosPossiveis()[pos.linha, pos.coluna];
-        }
+        }//Validando a posição de destino
 
 
         public abstract bool[,] movimentosPossiveis();

@@ -17,7 +17,7 @@ namespace xadrez
         {
             Peca p = tab.peca(pos);
             return p == null || p.cor != cor;
-        }//VERIFICA SE A PEÇA PODE MOVER
+        }//VERIFICA SE A PEÇA PODE MOVER SE ESTIVER VAZIA OU COM PEÇA ADVERSARIA
 
 
         public override bool[,] movimentosPossiveis()
